@@ -25,8 +25,8 @@ public class BulleteScript : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Alien")
+    { 
+        if(collision.gameObject.tag == "Alien" || collision.gameObject.tag == "AlienBullet")
         {
             Destroy(collision.gameObject);
 

@@ -8,7 +8,7 @@ public class AreaScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Alien")
+        if(collision.gameObject.tag == "Alien" || collision.gameObject.tag == "AlienBullet")
         {
             fleet.StopGame(false);
         }
