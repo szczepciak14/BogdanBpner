@@ -14,10 +14,11 @@ public class FleetScript : MonoBehaviour
 
     private int moveCounter = 0;
     private int moveDirection;
+
+    public AlienLeaderScript leader;
     // Start is called before the first frame update
     void Start()
     {
-        moveDirection = 1;
         StartGame();
     }
 
@@ -38,15 +39,20 @@ public class FleetScript : MonoBehaviour
     public void StopGame(bool win)
     {
         CancelInvoke("Move");
-        gameRun = false;
+        leader.StopLeader();
 
+        gameRun = false;
+        
         endText.gameObject.SetActive(true);
         endText.text = (win) ? "LGBTQ DEFEATED" : "You Lose !!!";
     }
 
     public void StartGame()
     {
+        moveDirection = 1;
         InvokeRepeating("Move", moveTime, moveTime);
+        leader.StartLeader();
+
         gameRun = true;
 
         endText.gameObject.SetActive(false);

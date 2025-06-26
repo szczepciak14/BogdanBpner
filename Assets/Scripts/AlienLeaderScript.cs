@@ -58,5 +58,6 @@ public class AlienLeaderScript : MonoBehaviour
     public void StopLeader()
     {
         CancelInvoke("Shoot");
+        ToggleVisible();
     }
 }
